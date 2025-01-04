@@ -1,9 +1,19 @@
 const footballersService = require("../services/footballersService");
 
+const getHome = (req, res) => {
+  try {
+    res.render("pages/home");
+  } catch (error) {
+    next(error);
+  }
+};
+
 const getLigabelanda = async (req, res, next) => {
   try {
     const footballers = await footballersService.getAllFootballerLigabelanda();
-    res.status(200).json({ message: "Pemain berhasil diambil", footballers });
+    // res.status(200).json({ message: "Pemain berhasil diambil", footballers });
+    console.log({ footballers });
+    res.render("pages/index", { footballers, liga: "Liga Belanda" });
   } catch (error) {
     next(error);
   }
@@ -11,7 +21,8 @@ const getLigabelanda = async (req, res, next) => {
 const getLigainggris = async (req, res, next) => {
   try {
     const footballers = await footballersService.getAllFootballerLigaingggris();
-    res.status(200).json({ message: "Pemain berhasil diambil", footballers });
+    // res.status(200).json({ message: "Pemain berhasil diambil", footballers });
+    res.render("pages/index", { footballers, liga: "Liga Inggris" });
   } catch (error) {
     next(error);
   }
@@ -19,7 +30,8 @@ const getLigainggris = async (req, res, next) => {
 const getLigajerman = async (req, res, next) => {
   try {
     const footballers = await footballersService.getAllFootballerLigajerman();
-    res.status(200).json({ message: "Pemain berhasil diambil", footballers });
+    // res.status(200).json({ message: "Pemain berhasil diambil", footballers });
+    res.render("pages/index", { footballers, liga: "Liga Jerman" });
   } catch (error) {
     next(error);
   }
@@ -27,7 +39,8 @@ const getLigajerman = async (req, res, next) => {
 const getLigaprancis = async (req, res, next) => {
   try {
     const footballers = await footballersService.getAllFootballerLigaprancis();
-    res.status(200).json({ message: "Pemain berhasil diambil", footballers });
+    // res.status(200).json({ message: "Pemain berhasil diambil", footballers });
+    res.render("pages/index", { footballers, liga: "Liga Prancis" });
   } catch (error) {
     next(error);
   }
@@ -35,7 +48,8 @@ const getLigaprancis = async (req, res, next) => {
 const getLigaspanyol = async (req, res, next) => {
   try {
     const footballers = await footballersService.getAllFootballerLigaspanyol();
-    res.status(200).json({ message: "Pemain berhasil diambil", footballers });
+    // res.status(200).json({ message: "Pemain berhasil diambil", footballers });
+    res.render("pages/index", { footballers, liga: "Liga Spanyol" });
   } catch (error) {
     next(error);
   }
@@ -103,6 +117,7 @@ const deleteFootballer = async (req, res, next) => {
 };
 
 module.exports = {
+  getHome,
   getLigabelanda,
   getLigainggris,
   getLigajerman,

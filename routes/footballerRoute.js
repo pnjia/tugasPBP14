@@ -8,10 +8,12 @@ const {
   insertFootballer,
   updateFootballer,
   deleteFootballer,
+  getHome,
 } = require("../controllers/footballerController");
 
 const router = express.Router();
 
+router.get("/", getHome);
 router.get("/ligabelanda", getLigabelanda);
 router.get("/ligainggris", getLigainggris);
 router.get("/ligajerman", getLigajerman);
