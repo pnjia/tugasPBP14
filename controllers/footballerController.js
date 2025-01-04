@@ -8,6 +8,14 @@ const getHome = (req, res) => {
   }
 };
 
+const getAbout = (req, res) => {
+  try {
+    res.render("pages/about");
+  } catch (error) {
+    next(error);
+  }
+};
+
 const getLigabelanda = async (req, res, next) => {
   try {
     const footballers = await footballersService.getAllFootballerLigabelanda();
@@ -118,6 +126,7 @@ const deleteFootballer = async (req, res, next) => {
 
 module.exports = {
   getHome,
+  getAbout,
   getLigabelanda,
   getLigainggris,
   getLigajerman,

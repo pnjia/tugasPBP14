@@ -31,6 +31,8 @@ body {
     margin-top: 16px;
     width: 100%;
     border-spacing: 0;
+    border-radius: 4px;
+    border: 2px solid black;
 }
 
 .tabel thead th {
@@ -81,6 +83,10 @@ body {
     background-color: transparent;
     font-weight: 500;
     font-size: 16px;
+}
+
+.navbar>.menu>.dropdown>.dropbtn > i {
+    margin-left: 2px;
 }
 
 .navbar > .menu > .dropdown > .dropdown-content {
